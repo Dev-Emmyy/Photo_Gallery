@@ -1,0 +1,221 @@
+
+.secondaryBgColor {
+    background-color:#11101f;
+    color: #f1b830;
+    transition: 1s ease;
+    box-shadow: 0px 8px 16px 15px rgba(0, 0, 0, 1);
+}
+
+.mainBgColor {
+    background-color: #fff;
+    color: #05148a;
+    transition: 1s ease;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 1);
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
+
+.btn_mode {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    cursor: pointer;
+}
+
+#display {
+    display: block;
+}
+
+#noDisplay {
+    display: none;
+}
+
+.navbar_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar_text h1 {
+    font-size: 2rem;
+    font-weight: bolder;
+    width: 600px;
+}
+
+.navbar_input {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 1rem 1.2rem 1rem 1rem;
+    border-radius: .5rem;
+}
+
+.navbar_input input {
+    border: none;
+    outline: none;
+    background-color: antiquewhite;
+}
+
+.navbar_input input::placeholder {
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navbar_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar_link .link {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    margin: 2rem 0rem 2rem;
+}
+
+.navbar_link a {
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar_link a.secondaryColor {
+    color: #f1b830;
+}
+
+.navbar_link a.mainColor {
+    color: #05148a;
+}
+
+.navbar_link a::after {
+    content: "";
+    background-color: #f1b830;
+    position: absolute;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 9px;
+    transition: .5s;
+}
+
+.navbar_link a:hover::after {
+    width: 100%;
+}
+
+
+@media screen and (max-width:768px) {
+    html,body {
+        overflow-x: hidden;
+    }
+
+    .logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    
+        .btn_mode {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 30%;
+            cursor: pointer;
+        }
+    
+        #display {
+            display: block;
+        }
+    
+        #noDisplay {
+            display: none;
+        }
+    
+        .navbar_text {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            
+        }
+    
+        .navbar_text h1 {
+            font-size: 1.8rem;
+            font-weight: bolder;
+            text-align: left;
+            width: 350px;
+        }
+    
+        .navbar_input {
+            display: flex;
+            justify-content: space-between;
+            width: 320px;
+            align-items: center;
+            background-color: antiquewhite;
+            padding: 1rem 1.2rem 1rem 1rem;
+            border-radius: .5rem;
+        }
+    
+        .navbar_input input {
+            border: none;
+            outline: none;
+            background-color: antiquewhite;
+        }
+    
+        .navbar_input input::placeholder {
+            font-size: 1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    
+        .navbar_link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .navbar_link .link {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 300px;
+            margin: 2rem 0rem 2rem;
+        }
+    
+        .navbar_link a {
+            text-decoration: none;
+            position: relative;
+        }
+    
+        .navbar_link a.secondaryColor {
+            color: #f1b830;
+        }
+    
+        .navbar_link a.mainColor {
+            color: #05148a;
+        }
+    
+        .navbar_link a::after {
+            content: "";
+            background-color: #f1b830;
+            position: absolute;
+            height: 3px;
+            width: 0;
+            left: 0;
+            bottom: 9px;
+            transition: .5s;
+        }
+    
+        .navbar_link a:hover::after {
+            width: 100%;
+        }
+}
