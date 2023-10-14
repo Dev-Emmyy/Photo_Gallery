@@ -25,7 +25,7 @@ function Navbar() {
                 <div>
                 {
                     toggle? 
-                    <img src={darklogo} width={200} height={130}/> : <img src={lightlogo} width={200} height={130}/>
+                    <img src={darklogo} width={200} height={130} alt="logo"/> : <img src={lightlogo} width={200} height={130} alt="logo"/>
                 }
                 </div>
 
