@@ -16,8 +16,15 @@ function Pictures() {
   const [searchPhotos, setSearchPhotos] = useState([]);
   const [hoveredPhotos,setHoveredPhotos] = useState(null);
   const {toggle,searchQuery} = useContext(Container);
+  const [loading, setLoading] = useState(true);
 
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
+  
    useEffect(() => {
     client.photos.curated({ per_page : 63})
       .then(response => {
@@ -56,18 +63,18 @@ function Pictures() {
   return (
     <Fragment>
       <div id={toggle? "secondaryBgColor" : "mainBgColor"}>
-        
-          <h1>Free Stock Photos</h1>
-
-        <div>
-        <div className="pictures_container" >
+         <h1>Free Stock Photos</h1>
+      <div>
+      {loading ? ( // Render loading spinner if loading is true
+      <div className="loading-spinner"></div>
+       ) : (
+      <div className="pictures_container">
       {searchPhotos.map(photo => {
         return (
           <ul>
             <li key={photo.id}
               onMouseEnter={() => handleHover(photo.id)}
-              onMouseLeave={handleLeave}
-            >
+              onMouseLeave={handleLeave}>
               <div className="image_container">
               <LazyLoadImage
                 effect="opacity"
@@ -93,13 +100,15 @@ function Pictures() {
             </li>
           </ul>
         );
-      })}
+      })}  
     </div>
+      )}
     </div>
 
-
-
-
+    <div>
+    {loading ? ( // Render loading spinner if loading is true
+     <div className="loading-spinner"></div>
+       ) : (
     <div className="pictures_container" >
       {curatedPhotos.map(photo => {
         return (
@@ -135,7 +144,10 @@ function Pictures() {
         );
       })}
     </div>
+    )}
     </div>
+    </div>
+    
 
       <div className="bottom_bg">
          <img src={BottomBg} width="100%"  height="350px" alt="BottomBg"/>
@@ -160,6 +172,7 @@ function Pictures() {
          </div>
          </div>
          </div>
+       
     </Fragment>
   );
 }

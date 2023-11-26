@@ -12,7 +12,12 @@ function Videos() {
   const [searchVidoes, setSearchVidoes] = useState([]);
   const {toggle,searchQuery} = useContext(Container);
 
-
+useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
+  
   useEffect(() => {
     client.videos.popular({ per_page: 63 })
     .then(response => {
@@ -58,6 +63,11 @@ function Videos() {
     <Fragment>
       <div id={toggle? "secondaryBgColor" : "mainBgColor"}>
        <h1>Popular Free Stock Videos</h1>
+
+      <div>
+        {loading ? ( // Render loading spinner if loading is true
+       <div className="loading-spinner"></div>
+       ) : (
       <div className="videos-container">
         {searchVidoes.map( (video , index) => (
           <div key={video.id} className="video-item">
@@ -90,9 +100,14 @@ function Videos() {
           </div>
         ))}
       </div>
+       )}
+      </div>
 
 
-
+      <div>
+        {loading ? ( // Render loading spinner if loading is true
+       <div className="loading-spinner"></div>
+       ) : (
       <div className="videos-container">
         {videos.map( (video , index) => (
           <div key={video.id} className="video-item">
@@ -124,6 +139,8 @@ function Videos() {
             </div>
           </div>
         ))}
+      </div>
+       )}
       </div>
       </div>
 
