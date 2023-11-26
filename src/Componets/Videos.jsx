@@ -11,13 +11,15 @@ function Videos() {
   const [videos,setVideos] = useState([]);
   const [searchVidoes, setSearchVidoes] = useState([]);
   const {toggle,searchQuery} = useContext(Container);
+  const [loading, setLoading] = useState(true);
+
 
 useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 5000);
   }, []);
-  
+
   useEffect(() => {
     client.videos.popular({ per_page: 63 })
     .then(response => {
